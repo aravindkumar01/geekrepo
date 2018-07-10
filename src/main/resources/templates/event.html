@@ -1,0 +1,782 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+
+
+<head>
+<style>
+body {
+    background-color: #eee;
+}
+
+*[role="form"] {
+    max-width: 530px;
+    padding: 15px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 0.3em;
+}
+
+*[role="form"] h2 {
+    margin-left: 5em;
+    margin-bottom: 1em;
+}
+
+.cursor{
+
+cursor:pointer;
+}
+
+
+
+.containerl {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.sub{
+	width:600px;
+	height:150px;
+	margin-left:-60px;
+	margin-right:-40px;
+	
+}
+.sub1{
+	width:600px;
+	height:150px;
+	margin-left:-60px;
+	margin-right:-40px;
+	margin-top:-80px;
+	margin-bottom:-40px;
+	
+	
+}
+.sub2{
+	width:600px;
+	height:150px;
+	margin-left:-60px;
+	margin-right:-40px;
+	margin-top:-140px;	
+}
+
+.sub3{
+	width:600px;
+	height:150px;
+	margin-left:-60px;
+	margin-right:-40px;
+	margin-top:-160px;
+	
+}
+.sub4{
+	width:600px;
+	height:150px;
+	margin-left:-60px;
+	margin-right:-40px;
+	margin-top:-160px;
+	
+}
+
+
+
+/* Hide the browser's default radio button */
+.containerl input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.containerl:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.containerl input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.containerl input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.containerl .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+body {
+  color: #6a6c6f;
+  background-color: #f1f3f6;
+  margin-top: 0px;
+}
+
+.container {
+  max-width: 1060px;
+}
+
+.panel-default>.panel-heading {
+  color: #333;
+  background-color: #fff;
+  border-color: #e4e5e7;
+  padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.panel-default>.panel-heading a {
+  display: block;
+  padding: 30px 15px;
+}
+
+.panel-default>.panel-heading a:after {
+  content: "";
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  float: right;
+  transition: transform .25s linear;
+  -webkit-transition: -webkit-transform .25s linear;
+}
+
+.panel-default>.panel-heading a[aria-expanded="true"] {
+  background-color: #eee;
+}
+
+.panel-default>.panel-heading a[aria-expanded="true"]:after {
+  content: "\2212";
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.panel-default>.panel-heading a[aria-expanded="false"]:after {
+  content: "\002b";
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.accordion-option {
+  width: 100%;
+  float: left;
+  clear: both;
+  margin:  0;
+}
+
+.accordion-option .title {
+  font-size: 20px;
+  font-weight: bold;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+
+.accordion-option .toggle-accordion {
+  float: right;
+  font-size: 16px;
+  color: #6a6c6f;
+}
+
+.accordion-option .toggle-accordion:before {
+  content: "Expand All";
+}
+
+.accordion-option .toggle-accordion.active:before {
+  content: "click On title";
+  color:white;
+}
+
+
+div.ex3 {
+  
+    height: 1000px;
+    width: 600px;    
+    overflow-y: auto;
+}
+</style>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geek</title>
+
+	<link rel="icon" href="css/img/logo.png" type="image/png">
+	
+
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+
+<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+
+<link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="assets/fonts/simple-line-icons.css">
+
+<link rel="stylesheet" type="text/css" href="assets/css/slicknav.css">
+
+<link rel="stylesheet" type="text/css" href="assets/css/nivo-lightbo	x.css">
+
+<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+
+<link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css">
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+<script src="https://unpkg.com/sweetalert2@7.3.0/dist/sweetalert2.all.js"></script>
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script	>
+<script>
+$(document).ready(function(){
+            
+			$('#p3').hide();
+			
+			$('#p4').hide();
+			
+			$("#event").change(function(){
+                var event=$('#event').val();
+                 if(event=='Geek-Adz')
+				 {
+				 $('#p3').show();
+			
+			$('#p4').show();
+				 }
+				 else{
+				 $('#p3').hide();
+			
+			$('#p4').hide();
+				 }
+		 
+		      }); 
+			
+			
+    $(' .panel-collapse.in').collapse('hide');
+ 
+  $(".toggle-accordion").on("click", function() {
+    var accordionId = $(this).attr("accordion-id"),
+      numPanelOpen = $(accordionId + ' .collapse.in').length;
+    
+    $(this).toggleClass("active");
+
+    if (numPanelOpen == 0) {
+      openAllPanels(accordionId);
+    } else {
+      closeAllPanels(accordionId);
+    }
+  })
+
+  openAllPanels = function(aId) {
+    console.log("setAllPanelOpen");
+    $(aId + ' .panel-collapse:not(".in")').collapse('show');
+  }
+  closeAllPanels = function(aId) {
+    console.log("setAllPanelclose");
+    $(aId + ' .panel-collapse.in').collapse('hide');
+  }
+
+ 
+});
+
+
+
+</script>
+</head>
+
+<body>
+
+<header id="header-wrap">
+
+
+
+<div class="navigation-menu">
+<nav class="navbar navbar-default navbar-event" role="navigation" data-spy="affix" data-offset-top="20">
+<div class="container">
+
+<div class="navbar-header col-md-2">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+</div>
+<div class="collapse navbar-collapse" id="navbar">
+<ul class="menu menu-hover-lines main-nav">
+				<li><a href="index" class=""  >Home</a></li>
+				<li><a href="index" class="a" >About</a></li>
+				<li><a href="index" class="">Events</a></li>
+				<li class="small-logo"><a href="index"><img src="css/img/logo.png" alt=""></a></li>
+				<li><a href="index" class="">Schedule</a></li>			
+				<li><a href="index" class="">Contact</a></li>
+		        <li><a href="admin" class="">Admin</a></li>
+
+			    
+			</ul>
+
+</ul>
+</div>
+</div>
+</nav>
+</div>
+</header>
+<body>
+
+
+<br><br>
+
+
+
+
+
+<div class="container col-sm-6 ex3">
+  <div class="accordion-option"><br>
+    <h3 class="title" style="color:white;">Events</h3>
+    <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
+  </div>
+  <div class="clearfix"></div>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Paper Presentation
+        </a>
+      </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+           <h4 style="font-family: 'Encode Sans Condensed', sans-serif;"> <b><u>Geek Zorro  - Paper Presentation</u></b></h4>	
+
+                      <h4 style="font-family: 'Encode Sans Condensed', sans-serif;"><u><b>Topic:</b></u></h4>		
+					  <h4 style="font-family: 'Encode Sans Condensed', sans-serif;"><center>Indicated and not limited to</center></h4>
+					  <p style="font-family: 'Tajawal', sans-serif;">
+					  
+					  Data Mining ,Image Processing, Networking ,Cloud Computing, Nano Technology, Internet and Mobile Technology, Grid Computing, SAS, Soft Computing, Web and Text Mining, and Computational Intelligence.
+					  
+					  
+					  </p>
+					    <h4 style="font-family: 'Encode Sans Condensed', sans-serif;"><u><b>Rules:</b></u></h4>		
+										<p  style="font-family: 'Tajawal', sans-serif;">
+										
+										Maximum two authors. Paper should be submitted in IEEE format. Not more than six pages. Participants must specify email id, address and phone number. Last date of submission of papers is on August 22, 2016.   Intimation of paper acceptance through mail will be on August 24, 2016.Participants are requested to hand over the presentation soft copy to registration counter at 9.00 am. Presentation time – 10 minutes. Send your papers to geekmatics@kgisliim.ac.in
+										
+										
+										</p>
+
+
+		 </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingTwo">
+        <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" >
+          Geek Face  - Face Art
+        </a>
+      </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+        <div class="panel-body">
+
+                            
+					<h4 style="font-family: 'Encode Sans Condensed', sans-serif;"> <b><u> Face Art</u></b></h4>	
+
+                         <h4 style="font-family: 'Encode Sans Condensed', sans-serif;"><u><b>Rules:</b></u></h4>		
+										<ul  style="font-family: 'Tajawal', sans-serif;">
+									      
+                                          <li>&nbsp;&nbsp;&nbsp;&nbsp;*Two participants per team.</li>
+									      <li>&nbsp;&nbsp;&nbsp;&nbsp;*Time duration one hour.</li>
+										  <li>&nbsp;&nbsp;&nbsp;&nbsp;*This competition is strictly with Brush & Sponge only.</li>
+										  <li>&nbsp;&nbsp;&nbsp;&nbsp;*Accessories and Stencils are not allowed. </li>
+										  <li>&nbsp;&nbsp;&nbsp;&nbsp;*Glitter is permitted.</li>
+										  <li>&nbsp;&nbsp;&nbsp;&nbsp;*Theme will be given on spot.</li>
+										  <li>&nbsp;&nbsp;&nbsp;&nbsp;*Contestants should bring their own materials.  </li>
+										</ul>
+								
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingFour">
+        <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+          Geek Junk – Debugging
+        </a>
+      </h4>
+      </div>
+      <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFour">
+        <div class="panel-body">
+                    
+					<h4 style="font-family: 'Encode Sans Condensed', sans-serif;"> <b><u> Debugging</u></b></h4>	
+
+                         <h4 style="font-family: 'Encode Sans Condensed', sans-serif;"><u><b>Rules:</b></u></h4>		
+										<ol  style="font-family: 'Tajawal', sans-serif;">
+									      
+                                          <li>1.Preliminary round</li>
+										       <ul>
+											     <li>&nbsp;&nbsp;&nbsp;&nbsp;*Two members per team.</li>
+											     <li>&nbsp;&nbsp;&nbsp;&nbsp;*30 questions (Time duration - 20 minutes).</li>
+											   </ul>
+									      <li>2.Final</li>
+										        <ul>
+												  <li>&nbsp;&nbsp;&nbsp;&nbsp;*Final round based on programming.</li>
+												</ul>
+										
+								
+								</ol>
+								</div>
+      </div>
+    </div>
+	
+	    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingFive">
+        <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+          Geek Tango – Network Gaming
+        </a>
+      </h4>
+      </div>
+      <div id="collapseFive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFive">
+        <div class="panel-body">
+       <h4 style="font-family: 'Encode Sans Condensed', sans-serif;"> <b><u>Network Gaming</u></b></h4>	
+
+                         <h4 style="font-family: 'Encode Sans Condensed', sans-serif;"><u><b>Rules:</b></u></h4>		
+										<ol  style="font-family: 'Tajawal', sans-serif;">
+									      
+                                          <li>1.Two participants per team.</li>
+										
+									      <li>2.articipants will enter various stages of the preliminary rounds.</li>
+										        <ul>
+												  <li>&nbsp;&nbsp;&nbsp;&nbsp;*Password (breaking).</li>
+												  <li>&nbsp;&nbsp;&nbsp;&nbsp;*Logical Networking.</li>
+												  <li>&nbsp;&nbsp;&nbsp;&nbsp;*Crembing.</li>
+												  <li>&nbsp;&nbsp;&nbsp;&nbsp;*Network (Debugging).</li>
+												</ul>
+										  <li>3.Top six teams will be selected for final</li>
+										  </ol>
+					 </div>
+      </div>
+    </div>
+	    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingSix">
+        <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+         Geek Quiz – Quiz
+        </a>
+      </h4>
+      </div>
+      <div id="collapseSix" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSix">
+        <div class="panel-body">
+                  
+					<h4 style="font-family: 'Encode Sans Condensed', sans-serif;"> <b><u> Quiz</u></b></h4>	
+
+                         <h4 style="font-family: 'Encode Sans Condensed', sans-serif;"><u><b>Rules:</b></u></h4>		
+										<ol  style="font-family: 'Tajawal', sans-serif;">
+									      
+                                          <li>1.Two participants per team.</li>
+										
+									      <li>2.articipants will enter various stages of the preliminary rounds.</li>
+										        <ul>
+												  <li>&nbsp;&nbsp;&nbsp;&nbsp;*Password (breaking).</li>
+												  <li>&nbsp;&nbsp;&nbsp;&nbsp;*Logical Networking.</li>
+												  <li>&nbsp;&nbsp;&nbsp;&nbsp;*Crembing.</li>
+												  <li>&nbsp;&nbsp;&nbsp;&nbsp;*Network (Debugging).</li>
+												</ul>
+										  <li>3.Top six teams will be selected for final</li>
+										  </ol>
+									
+		  
+		  
+		  </div>
+      </div>
+    </div>
+	    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingSeven">
+        <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="true" aria-controls="collapseSeven">
+             Geek Trix – Software Testing  
+        </a>
+      </h4>
+      </div>
+      <div id="collapseSeven" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSeven">
+        <div class="panel-body">
+               
+					<h4 style="font-family: 'Encode Sans Condensed', sans-serif;"> <b><u>Software Testing</u></b></h4>	
+
+                         <h4 style="font-family: 'Encode Sans Condensed', sans-serif;"><u><b>Rules:</b></u></h4>		
+										<ul  style="font-family: 'Tajawal', sans-serif;">
+									      
+                                          <li>*Write any fifteen valid test cases.</li>
+										
+									      <li>*Solving dumps (half an hour).</li>
+										       
+										  <li>*Debugging of program in C++.</li>
+										  <li>*Working of QTP tool.</li>
+										  <li>*Problem solving through boundary value analysis and equivalence portioning, statement coverage.</li>
+										  <li>*Preparing bug report. </li>
+										  <li>*Two members per team.</li>
+										  <li>*Domain will be given on spot.</li>
+										  
+										  </ul>
+									 </div>
+      </div>
+    </div>
+	    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingEight">
+        <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
+           Geek Adz-Marketing
+        </a>
+      </h4>
+      </div>
+      <div id="collapseEight" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingEight">
+        <div class="panel-body">
+       
+<h4 style="font-family: 'Encode Sans Condensed', sans-serif;"> <b><u>Marketing</u></b></h4>	
+
+                         <h4 style="font-family: 'Encode Sans Condensed', sans-serif;"><u><b>Rules:</b></u></h4>		
+										<ol  style="font-family: 'Tajawal', sans-serif;">
+									      
+                                          <li>*Four members per team.</li>
+										
+									      <li>*The event will be conducted in two rounds.</li>
+										       
+										  <li>*The product will be specified five minutes before the team goes on stage.</li>
+										  <li>*You will have to enact the given product in front of the juries and it should be entertaining.</li>
+										  <li>*Different forms of expressions like a short skit, jingles, slogans, banners or any other innovative form can be used</li>
+										  <li>*Vulgarity in any sort will lead to disqualification.</li>
+										  <li>*Two members per team.</li>
+										  <li>*Domain will be given on spot.</li>
+										  
+										  <li><b>ROUND I  - (30 minutes)</b></li>
+										      <ul><li>&nbsp;&nbsp;&nbsp;&nbsp;Written Test with two members of the team on advertising skills</li></ul>
+										  <li><b>ROUND II - (5 + 2 minutes):</b></li>
+										      <ul><li>&nbsp;&nbsp;&nbsp;&nbsp;Products will be given to the team and they should present it with more humor, creative ideas.</li></ul>
+										          	  
+										  
+										  
+										  </ol>
+					
+	   </div>
+      </div>
+    </div>
+	    
+  </div>
+</div>
+
+
+
+
+<div class="col-sm-5">
+ 
+				<form   action="studentInsert" method="POST" modelAttribute="Record" >
+                                 <div class="md-form mb-">
+				    <label data-error="wrong" data-success="right" for="orangeForm-college" style="color:white;">Event<i class="fa fa-address-book-o" aria-hidden="true"></i>
+                            </label>
+                        <select name="event" id="event" class="form-control" style="background:white">
+                                                         <option value="seect" disabled>Select</option>
+							                             <option value="Geek-Zorro">Geek Zorro</option>
+														 <option value="Geek-Face">Geek Face </option>
+														 <option value="Geek-Junk">Geek Junk</option>
+														 <option value="Geek-Adz">Geek Adz</option>
+														 <option value="Geek_Tango">Geek Tango </option>
+														 <option value="Geek_quiz">Geek Quiz</option>
+														 <option value="Geek_Trix">Geek Trix </option>
+														 <option value="Geek_Mesh">Geek Mesh</option>
+                            
+                            
+						</select> 
+					 
+                </div>
+				  
+		   
+                 <div class="md-form mb-5">
+                   
+					   <label data-error="wrong" data-success="right" for="orangeForm-name" style="color:white;"> Participant Name 1 <i class="fa fa-user"></i></label>
+                    <input type="text" id="Participate1" name="Participate1"  class="form-control validate" placeholder="Eg.Aravind K" required="required">
+                 
+                </div>
+				<div class="md-form mb-5" >                   
+					   <label data-error="wrong" data-success="right" for="orangeForm-name" style="color:white;">Participant Name 2 <i class="fa fa-user "></i></label>
+                       <input type="text" id="Participate2"  name="Participate2" class="form-control validate"  placeholder="Eg.Ravi S">
+                 
+                </div>
+				<div class="md-form mb-5" id="p3">
+                   
+					   <label data-error="wrong" data-success="right" for="orangeForm-name" style="color:white;"> Participant Name  3<i class="fa fa-user"></i></label>
+                    <input type="text" id="Participate3" name="Participate3"  class="form-control validate" placeholder="Eg.Aravind K" >               
+                </div>
+				<div class="md-form mb-5" id="p4">
+                   
+					   <label data-error="wrong" data-success="right" for="orangeForm-name" style="color:white;"> Participant Name 4<i class="fa fa-user"></i></label>
+                    <input type="text" id="Participate4" name="Participate4"  class="form-control validate" placeholder="Eg.Aravind K" >
+                 
+                </div>
+				
+                <div class="md-form mb-5">
+				    <label data-error="wrong" data-success="right" for="orangeForm-email" style="color:white;">Your email <i class="fa fa-envelope prefix "></i></label>
+                    <input type="email" id="mail" class="form-control validate"  placeholder="Eg.aravind01@gmail.com"name="mail" required="required">
+                    
+                </div>
+				  
+				  
+                <div class="md-form mb-5">
+				    <label data-error="wrong" data-success="right" for="orangeForm-college" style="color:white;">College Name <i class="fa fa-address-book-o" aria-hidden="true"></i>
+                            </label>
+                    <input  type="text" id="college" class="form-control validate"  placeholder="Eg.KGISL-IIM" name="college" required="required">
+                    
+					 
+                </div>
+				
+				 <div class="md-form mb-5">
+				    <label data-error="wrong" data-success="right" for="orangeForm-department" style="color:white;">Department Name <i class="fa fa-id-badge" aria-hidden="true"></i></label>
+                    <input  id="department" class="form-control validate" placeholder="Eg.MCA" name="department" type="text" required="required">
+                    
+                </div>
+				
+				
+				 <div class="md-form mb-5">
+				    <label data-error="wrong" data-success="right" for="orangeForm-number" style="color:white;">Contact Number <i class="fa fa-phone" aria-hidden="true"></i></label>
+                    <input type="text" id="phone" class="form-control validate" placeholder="Eg.7856492359" name="phone"  required="required">
+                    
+                </div>
+
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+                                         <button class="btn btn-danger" type="submit" >Register</button>
+                                    
+                                </div>
+                      </form></div>
+
+
+
+
+
+
+
+
+
+<section id="copyright">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<p class="copyright-text text-center">
+©Designed and Developed by
+<span><i class=""></i> <a href="" title="KGiSL"  title=""style="color:white;"> KGiSL-IIM</a></span>
+</a>
+</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<a href="#" class="back-to-top">
+<i class="icon-arrow-up"></i>
+</a>
+<div class="bottom"> <a href="#" class="settings"></a> </div>
+
+<script data-cfasync="false" src=""></script><script src="assets/js/jquery.min.js"></script>
+
+<script src="https://unpkg.com/sweetalert2@7.3.0/dist/sweetalert2.all.js"></script>
+
+<script src="assets/js/bootstrap.min.js"></script>
+
+<script src="assets/js/jquery.countdown.min.js"></script>
+
+<script src="assets/js/smooth-scroll.js"></script>
+
+<script src="assets/js/wow.js"></script>
+
+<script src="assets/js/owl.carousel.min.js"></script>
+
+<script src="assets/js/jquery.slicknav.js"></script>
+
+<script src="assets/js/nivo-lightbox.js"></script>
+
+<script src="assets/js/form-validator.min.js"></script>
+<script src="assets/js/contact-form-script.js"></script>
+
+<script src="assets/js/color-switcher.js"></script>
+
+<script src="assets/js/main.js"></script>
+
+<script type="text/javascript" src="assets/js/jquery.mapit.min.js"></script>
+<script src="assets/js/initializers.js"></script>
+<script src="assets/js/jquery.form.min"></script>
+
+
+
+<script>			
+	</script>
+
+	
+	
+	
+	
+	
+
+	<style>
+		a{
+			color:black;
+		}
+		a:hover{
+			color:red !important;
+		}
+	</style>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

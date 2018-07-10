@@ -1,0 +1,314 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Geek</title>
+<link rel="icon" href="css/img/logo.png" type="image/png">
+
+<script
+	src='//static.codepen.io/assets/editor/live/console_runner-ce3034e6bde3912cc25f83cccb7caa2b0f976196f2f2d52303a462c826d54a73.js'></script>
+<script
+	src='//static.codepen.io/assets/editor/live/css_live_reload_init-890dc39bb89183d4642d58b1ae5376a0193342f9aed88ea04330dc14c8d52f55.js'></script>
+<meta charset='UTF-8'>
+<meta name="robots" content="noindex">
+
+
+<link href='https://fonts.googleapis.com/css?family=Megrim'
+	rel='stylesheet' type='text/css'>
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Raleway">
+<link href="https://fonts.googleapis.com/css?family=Tajawal"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat|Oswald"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Montserrat|Oswald|Raleway"
+	rel="stylesheet">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<style class="cp-pen-styles">
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+canvas {
+	border: 1px soild black;
+}
+
+h1 {
+	padding: .3em;
+	font-family: 'Megrim', cursive;
+	position: absolute;
+	top: 30%;
+	left: 35%;
+	font-size: 50px;
+}
+
+#h {
+	display: inline-block;
+	padding: .3em;
+	font-family: 'Megrim', cursive;
+	position: absolute;
+	top: 10%;
+	left: 28%;
+	font-size: 70px;
+}
+
+h2 {
+	display: inline-block;
+	padding: .3em;
+	font-family: 'Megrim', cursive;
+	position: absolute;
+	top: 50%;
+	left: 55%;
+	font-size: 30px;
+}
+
+
+a {
+	display: inline-block;
+	padding: .3em;
+	font-family: 'Megrim', cursive;
+	position: absolute;
+	top: 70%;
+	left: 45%;
+	font-size: 30px;
+}
+
+#btn {
+	display: inline-block;
+	position: absolute;
+	top: 65%;
+	left: 42%;
+	font-size: 30px;
+}
+
+</style>
+<script>
+</script>
+</head>
+<body>
+
+	<canvas id="canvas"></canvas>
+	<h1 id="h"
+		style="font-family: 'Montserrat', sans-serif;; color: white;">COMING
+		SOON</h1>
+	<h1 id="demo" style="color: white; font-family: 'Raleway', sans-serif;"></h1>
+	<h2 style="font-family: 'Oswald', sans-serif; color: white;">-We
+		are ready geek!!</h2>
+		
+	<!-- <h2 id="btn">
+		<button type="button" style="font-size: 30px" id="main"
+			class="btn btn-success btn-lg ">
+			Click Here<i class="fa fa-thumbs-up"
+				style="font-size: 36px; color: white;"></i>
+		</button>
+	</h2> -->
+	<a href="main" class="btn btn-success btn-lg ">Click Here <i class="fa fa-thumbs-up"
+				style="font-size: 36px; color: white;"></i></a>
+	<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Sep 5, 2018 15:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
+    
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+    
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
+
+
+
+	<script
+		src='//static.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script>
+	<script>// Little Canvas things
+var canvas = document.querySelector("#canvas"),
+    ctx = canvas.getContext('2d');
+
+// Set Canvas to be window size
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// Configuration, Play with these
+var config = {
+    particleNumber: 100,
+    maxParticleSize: 10,
+    maxSpeed: 30,
+    colorVariation: 50
+};
+
+// Colors
+var colorPalette = {
+    bg: { r: 12, g: 9, b: 29 },
+    matter: [{ r: 36, g: 18, b: 42 }, // darkPRPL
+    { r: 78, g: 36, b: 42 }, // rockDust
+    { r: 252, g: 178, b: 96 }, // solorFlare
+    { r: 253, g: 238, b: 152 // totesASun
+    }]
+};
+
+// Some Variables hanging out
+var particles = [],
+    centerX = canvas.width / 2,
+    centerY = canvas.height / 2,
+    drawBg,
+
+
+// Draws the background for the canvas, because space
+drawBg = function drawBg(ctx, color) {
+    ctx.fillStyle = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+};
+
+// Particle Constructor
+var Particle = function Particle(x, y) {
+    // X Coordinate
+    this.x = x || Math.round(Math.random() * canvas.width);
+    // Y Coordinate
+    this.y = y || Math.round(Math.random() * canvas.height);
+    // Radius of the space dust
+    this.r = Math.ceil(Math.random() * config.maxParticleSize);
+    // Color of the rock, given some randomness
+    this.c = colorVariation(colorPalette.matter[Math.floor(Math.random() * colorPalette.matter.length)], true);
+    // Speed of which the rock travels
+    this.s = Math.pow(Math.ceil(Math.random() * config.maxSpeed), .7);
+    // Direction the Rock flies
+    this.d = Math.round(Math.random() * 360);
+};
+
+// Provides some nice color variation
+// Accepts an rgba object
+// returns a modified rgba object or a rgba string if true is passed in for argument 2
+var colorVariation = function colorVariation(color, returnString) {
+    var r, g, b, a, variation;
+    r = Math.round(Math.random() * config.colorVariation - config.colorVariation / 2 + color.r);
+    g = Math.round(Math.random() * config.colorVariation - config.colorVariation / 2 + color.g);
+    b = Math.round(Math.random() * config.colorVariation - config.colorVariation / 2 + color.b);
+    a = Math.random() + .5;
+    if (returnString) {
+        return "rgba(" + r + "," + g + "," + b + "," + a + ")";
+    } else {
+        return { r: r, g: g, b: b, a: a };
+    }
+};
+
+// Used to find the rocks next point in space, accounting for speed and direction
+var updateParticleModel = function updateParticleModel(p) {
+    var a = 180 - (p.d + 90); // find the 3rd angle
+    p.d > 0 && p.d < 180 ? p.x += p.s * Math.sin(p.d) / Math.sin(p.s) : p.x -= p.s * Math.sin(p.d) / Math.sin(p.s);
+    p.d > 90 && p.d < 270 ? p.y += p.s * Math.sin(a) / Math.sin(p.s) : p.y -= p.s * Math.sin(a) / Math.sin(p.s);
+    return p;
+};
+
+// Just the function that physically draws the particles
+// Physically? sure why not, physically.
+var drawParticle = function drawParticle(x, y, r, c) {
+    ctx.beginPath();
+    ctx.fillStyle = c;
+    ctx.arc(x, y, r, 0, 2 * Math.PI, false);
+    ctx.fill();
+    ctx.closePath();
+};
+
+// Remove particles that aren't on the canvas
+var cleanUpArray = function cleanUpArray() {
+    particles = particles.filter(function (p) {
+        return p.x > -100 && p.y > -100;
+    });
+};
+
+var initParticles = function initParticles(numParticles, x, y) {
+    for (var i = 0; i < numParticles; i++) {
+        particles.push(new Particle(x, y));
+    }
+    particles.forEach(function (p) {
+        drawParticle(p.x, p.y, p.r, p.c);
+    });
+};
+
+// That thing
+window.requestAnimFrame = function () {
+    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function (callback) {
+        window.setTimeout(callback, 1000 / 60);
+    };
+}();
+
+// Our Frame function
+var frame = function frame() {
+    // Draw background first
+    drawBg(ctx, colorPalette.bg);
+    // Update Particle models to new position
+    particles.map(function (p) {
+        return updateParticleModel(p);
+    });
+    // Draw em'
+    particles.forEach(function (p) {
+        drawParticle(p.x, p.y, p.r, p.c);
+    });
+    // Play the same song? Ok!
+    window.requestAnimFrame(frame);
+};
+
+// Click listener
+document.body.addEventListener("click", function (event) {
+    var x = event.clientX,
+        y = event.clientY;
+    cleanUpArray();
+    initParticles(config.particleNumber, x, y);
+});
+
+// First Frame
+frame();
+
+// First particle explosion
+initParticles(config.particleNumber);
+//# sourceURL=pen.js
+</script>
+</body>
+</html>

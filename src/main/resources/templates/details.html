@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Geek</title>
+
+<link rel="icon" href="css/img/logo.png" type="image/png"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+	<script src="/js/datatable.js"></script>
+	<script type="text/javascript">
+
+
+	$(document).ready( function () {
+
+
+		
+		 var table = $('#employeesTable').DataTable({
+				"sAjaxSource": "/ListStudent1",
+				"sAjaxDataProp": "",
+				"order": [[ 0, "asc" ]],
+				"aoColumns": [
+				    { "mData": "id"},
+			        { "mData": "participate1" },
+					  { "mData": "participate2" },
+					  { "mData": "participate3" },
+					  { "mData": "participate4" },
+					  { "mData": "college" },
+					  { "mData": "department" },
+					  { "mData": "event" },
+					  { "mData": "mail" },
+					  { "mData": "phone" }
+				],
+				
+		 })
+
+
+
+
+			});
+
+
+
+
+	</script>
+</head>
+
+<body style="background: #d9e6e6;">
+	<h1 style="color:black;"><center><u>Registration Detailes</u></center></h1>
+	  <a href="index" class="btn btn-danger">back</a>
+       <div class="row">
+       <div class="col-sm-1"></div>
+       <div class="col-sm-8">
+       
+           
+    <table id="employeesTable" class="display">
+       
+       <thead>
+            <tr>
+                <th>id</th>
+                <th>Participate1</th>
+                <th>Participate2</th>
+                <th>Participate3</th>
+                <th>Participate4</th>
+                <th>College</th>
+                <th>department</th>
+                <th>event</th>
+                <th>mail</th>
+                <th>phone</th>
+            </tr>
+        </thead>
+        <!-- Footer Table -->
+        <tfoot>
+            <tr>
+               <th>id</th>
+                <th>Participate1</th>
+                <th>Participate2</th>
+                <th>Participate3</th>
+                <th>Participate4</th>
+                <th>College</th>
+                <th>department</th>
+                <th>event</th>
+                <th>mail</th>
+                <th>phone</th>
+            </tr>
+        </tfoot>
+    </table>
+    
+       
+       
+       </div>
+       <div class="col-sm-1"></div>
+       
+       </div>
+      
+       <!-- Header Table -->
+    
+</body>
+</html>
