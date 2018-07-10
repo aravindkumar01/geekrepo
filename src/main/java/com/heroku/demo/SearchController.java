@@ -37,7 +37,7 @@ public class SearchController {
 	    	
 	    	return "event";
 	   }
-	   /* @RequestMapping(value="/regs/insert",method = RequestMethod.POST)
+	   @RequestMapping(value="/studentInsert",method = RequestMethod.POST)
 	    public RedirectView insertData(ModelMap model, 
                 @ModelAttribute("Record") @Valid Record record,
                 BindingResult result) {
@@ -49,7 +49,7 @@ public class SearchController {
 	    	    redirectView.setUrl("/main");
 	    	    return redirectView;
 
-}*/
+}
 	    @RequestMapping(value="/index",method = RequestMethod.GET)
 	    public RedirectView index() {	    	 
 	    	    RedirectView redirectView = new RedirectView();

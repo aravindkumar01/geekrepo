@@ -44,7 +44,7 @@ public class HomeController {
         model.addAttribute("insertRecord", new Record());
         return "home";
     }
-
+/*
     @RequestMapping(value="/studentInsert",method = RequestMethod.POST)
     public String insertData(ModelMap model, 
                              @ModelAttribute("Record") @Valid Record record,
@@ -53,5 +53,5 @@ public class HomeController {
             repository.save(record);
         }
         return home(model);
-    }
+    }*/
 }
